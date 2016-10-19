@@ -1,32 +1,32 @@
 {
-  "name": "save-sync",
-  "version": "0.0.1",
-  "description": "Manages and backs up your save games on GitHub",
-  "main": "build/app.js",
-  "scripts": {
-    "start": "gulp && electron ."
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "keywords": [
-    "save",
-    "sync",
-    "backup",
-    "steam",
-    "game"
-  ],
-  "author": "z2oh",
-  "license": "MIT",
-  "devDependencies": {
-    "electron": "^1.4.1",
-    "typescript": "^2.0.3",
-    "pug": "^2.0.0-beta6",
-    "gulp": "^3.9.1",
-    "gulp-typescript": "^3.0.2",
-    "gulp-pug": "^3.1.0",
-    "gulp-sass": "^2.3.2",
-    "gulp-print": "^2.0.1"
-  }
+	"name": "save-sync",
+	"version": "0.0.1",
+	"description": "Manages and backs up your save games on GitHub",
+	"main": "build/app.js",
+	"scripts": {
+		"start": "gulp && electron ."
+	},
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"keywords": [
+		"save",
+		"sync",
+		"backup",
+		"steam",
+		"game"
+	],
+	"author": "z2oh",
+	"license": "MIT",
+	"devDependencies": {
+		"electron": "^1.4.1",
+		"typescript": "^2.0.3",
+		"pug": "^2.0.0-beta6",
+		"gulp": "^3.9.1",
+		"gulp-typescript": "^3.0.2",
+		"gulp-pug": "^3.1.0",
+		"gulp-sass": "^2.3.2",
+		"gulp-print": "^2.0.1"
+	}
 }
