@@ -1,36 +1,35 @@
-/* jshint node: true */
-'use strict';
+"use strict";
 
-var electron = require('electron');
-var app = electron.app;
-var BrowserWindow = electron.BrowserWindow;
+import electron = require("electron");
+const app = electron.app;
+const BrowserWindow = electron.BrowserWindow;
 
-var mainWindow;
+let mainWindow;
 
 function createWindow() {
 	mainWindow = new BrowserWindow({
-		width: 600,
 		height: 300,
-		'min-width': 500,
-		'min-height': 200,
-		'accept-first-mouse': true,
-		'title-bar-style': 'hidden'
+		width: 600,
+		"min-width": 500,
+		"min-height": 200,
+		"accept-first-mouse": true,
+		"title-bar-style": "hidden",
 	});
 	mainWindow.loadURL("file://" + __dirname + "/index.html");
-	mainWindow.on('closed', function () {
+	mainWindow.on("closed", function () {
 		mainWindow = null;
 	});
 }
 
-app.on('ready', createWindow);
+app.on("ready", createWindow);
 
-app.on('window-all-closed', function () {
-	if (process.platform != 'darwin') {
+app.on("window-all-closed", function () {
+	if (process.platform !== "darwin") {
 		app.quit();
 	}
 });
 
-app.on('activate', function () {
+app.on("activate", function () {
 	if (mainWindow === null) {
 		createWindow();
 	}
