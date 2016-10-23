@@ -3,6 +3,7 @@
 import electron = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+import { GitInterface } from "./git/git_interface";
 
 let mainWindow;
 
@@ -34,3 +35,5 @@ app.on("activate", function () {
 		createWindow();
 	}
 });
+
+GitInterface.GetSaveSyncRepository();
