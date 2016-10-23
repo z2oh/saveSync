@@ -4,6 +4,7 @@ import electron = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 import { GitInterface } from "./git/git_interface";
+import { AppConfiguration } from "./config/app_config";
 
 let mainWindow;
 
@@ -37,3 +38,4 @@ app.on("activate", function () {
 });
 
 GitInterface.GetSaveSyncRepository();
+let config = new AppConfiguration();
