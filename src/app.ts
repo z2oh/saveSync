@@ -37,5 +37,6 @@ app.on("activate", function () {
 	}
 });
 
-GitInterface.GetSaveSyncRepository();
+GitInterface.GetRepository("https://github.com/z2oh/saves", "testClone/saves");
+GitInterface.CreateNewRepository("testNewRepo");
 let config = new AppConfiguration();
