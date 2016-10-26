@@ -1,22 +1,35 @@
 import git = require("nodegit");
 import path = require("path");
 
+/**
+ * The interface for dealing with git.
+ * 
+ * @export
+ * @class GitInterface
+ */
 export class GitInterface {
 	/**
 	 * Clones a repository at a specified address to a local folder
-	 * @method GetRepository
-	 * @param {String} url - address of repository
-	 * @param {String} path - local path to clone to
+	 * 
+	 * @static
+	 * @param {string} url - address of repository
+	 * @param {string} localPath - local path to clone to
+	 * 
+	 * @memberOf GitInterface
 	 */
-	public static GetRepository (url: String, localPath: String) {
+	public static GetRepository (url: string, localPath: string) {
 		git.Clone(url, localPath);
 	};
+
 	/**
 	 * Initializes a new repository at specified path
 	 * 
-	 * @param {String} path - local path to initialize repo in
+	 * @static
+	 * @param {string} localPath - local path to initialize repo in
+	 * 
+	 * @memberOf GitInterface
 	 */
-	public static CreateNewRepository(localPath: String){
+	public static CreateNewRepository(localPath: string) {
 		let pathToRepo = path.resolve(localPath);
 		git.Repository.init(pathToRepo, 0).then(function(repository){
 			// currently creates an empty repository

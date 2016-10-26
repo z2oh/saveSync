@@ -3,6 +3,9 @@
 		"module": "commonjs",
 		"types": [
 			"node"
+		],
+		"lib": [
+			"es2015.promise"
 		]
 	}
 }

@@ -25,6 +25,7 @@
   "devDependencies": {
     "@types/node": "^6.0.45",
     "electron": "^1.4.1",
+    "electron-json-storage": "^2.0.1",
     "gulp": "^3.9.1",
     "gulp-print": "^2.0.1",
     "gulp-pug": "^3.1.0",

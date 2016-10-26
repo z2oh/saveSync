@@ -40,3 +40,6 @@ app.on("activate", function () {
 GitInterface.GetRepository("https://github.com/z2oh/saves", "testClone/saves");
 GitInterface.CreateNewRepository("testNewRepo");
 let config = new AppConfiguration();
+config.GetSettings().then((res) => {
+	console.log(res);
+});

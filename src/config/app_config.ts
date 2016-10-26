@@ -1,23 +1,67 @@
-import fs = require("fs");
-import os = require("os");
-import path = require("path");
+import storage = require("electron-json-storage");
 
+/**
+ * The interface for dealing with the app configuration settings.
+ * 
+ * @export
+ * @class AppConfiguration
+ */
 export class AppConfiguration {
-	private _appDataPath: string;
-	public saveRepository: string;
+	// This is the default configuration to be used in initialization. Perhaps this should be moved
+	// to an external file?
+	private defaultConfig: any = { initialized: true };
+	// The settings promise (and its resolution function, thanks es6).
+	private promiseResolve;
+	private settings = new Promise<any>((resolve, reject) => {
+		this.promiseResolve = resolve;
+	});
 
+	/**
+	 * Creates an instance of AppConfiguration.
+	 * 
+	 * Attempts to retrieve the settings.json file located in the app data directory. If there
+	 * is an error, the error is thrown. If the settings file does not exist (indicated by an
+	 * empty object and detected if the default key is not present) then the settings file is
+	 * initialized with the init function and the settings promise is resolved with the default
+	 * configuration. Otherwise, the settings file was retrieved correctly and exists, and the
+	 * settings promise is resolved with the returned data.
+	 * 
+	 * @memberOf AppConfiguration
+	 */
 	constructor() {
-		this._appDataPath = this.getAppDataPath();
-		console.log(this._appDataPath);
+		storage.get("settings", (err, data) => {
+			if (err) {
+				throw err;
+			} else if (data.initialized === undefined) {
+				this.Init();
+				this.promiseResolve(this.defaultConfig);
+			} else {
+				this.promiseResolve(data);
+			}
+		});
 	}
 
-	// https://github.com/Microsoft/vscode/blob/master/src/paths.js
-	private getAppDataPath() {
-		switch (os.platform()) {
-			case "win32": return process.env.APPDATA || path.join(process.env.USERPROFILE, "AppData", "Roaming");
-			case "darwin": return path.join(os.homedir(), "Library", "Application Support");
-			case "linux": return process.env.XDG_CONFIG_HOME || path.join(os.homedir(), ".config");
-			default: throw new Error("Platform not supported.");
-		}
+	/**
+	 * A getter for the settings promise.
+	 * 
+	 * @returns a promise that will be resolved with the settings object.
+	 * 
+	 * @memberOf AppConfiguration
+	 */
+	public GetSettings() {
+		return this.settings;
+	}
+
+	/**
+	 * Initializes the settings.json file with the default configuration.
+	 * 
+	 * @memberOf AppConfiguration
+	 */
+	private Init() {
+		storage.set("settings", this.defaultConfig, (err) => {
+			if (err) {
+				throw err;
+			}
+		});
 	}
 }
