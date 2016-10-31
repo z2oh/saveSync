@@ -1,5 +1,8 @@
 import storage = require("electron-json-storage");
 
+	interface IConfiguration {
+		initialized: boolean;
+	}
 /**
  * The interface for dealing with the app configuration settings.
  * 
@@ -9,10 +12,10 @@ import storage = require("electron-json-storage");
 export class AppConfiguration {
 	// This is the default configuration to be used in initialization. Perhaps this should be moved
 	// to an external file?
-	private defaultConfig: any = { initialized: true };
+	private defaultConfig: IConfiguration = { initialized: true };
 	// The settings promise (and its resolution function, thanks es6).
 	private promiseResolve;
-	private settings = new Promise<any>((resolve, reject) => {
+	private settings = new Promise<IConfiguration>((resolve, reject) => {
 		this.promiseResolve = resolve;
 	});
 
@@ -32,7 +35,7 @@ export class AppConfiguration {
 		storage.get("settings", (err, data) => {
 			if (err) {
 				throw err;
-			} else if (data.initialized === undefined) {
+			} else if ((data as IConfiguration).initialized === undefined) {
 				this.Init();
 				this.promiseResolve(this.defaultConfig);
 			} else {

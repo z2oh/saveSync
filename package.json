@@ -23,6 +23,7 @@
     "electron": "1.4.4"
   },
   "devDependencies": {
+    "@types/electron-json-storage": "0.0.19",
     "@types/node": "^6.0.45",
     "electron": "^1.4.1",
     "electron-json-storage": "^2.0.1",
