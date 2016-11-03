@@ -4,7 +4,8 @@
   "description": "Manages and backs up your save games on GitHub",
   "main": "build/app.js",
   "scripts": {
-    "start": "gulp && electron ."
+    "start": "gulp && electron .",
+    "test": "gulp && mocha"
   },
   "repository": {
     "type": "git",
@@ -32,8 +33,10 @@
     "gulp-pug": "^3.1.0",
     "gulp-sass": "^2.3.2",
     "gulp-typescript": "^3.0.2",
+    "mocha": "^3.1.2",
     "nodegit": "^0.16.0",
     "pug": "^2.0.0-beta6",
+    "spectron": "^3.4.0",
     "tslint": "^3.15.1",
     "typescript": "^2.0.3"
   }
