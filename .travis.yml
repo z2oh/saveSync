@@ -1,13 +1,13 @@
 os:
-	- linux
-	- osx
-	- windows
+    - linux
+    - osx
+    - windows
 
 language: node_js
 
 node_js:
-	- '4'
+    - '4'
 
 branches:
-	only:
-		- master
+    only:
+        - master
