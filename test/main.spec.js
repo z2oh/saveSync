@@ -3,7 +3,7 @@ var Application = require('spectron').Application;
 var assert = require('assert');
 var electron = require('electron');
 
-describe('application lanching', function () {
+describe('application launching', function () {
 	this.timeout(10000);
 
 	beforeEach(function () {
