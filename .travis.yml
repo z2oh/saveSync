@@ -16,7 +16,7 @@ addons:
 before_install:
     - export CC="gcc-4.9"
     - export CXX="g++-4.9"
-    - BUILD_ONLY=true npm install
+    - BUILD_ONLY=true npm install nodegit
 
 install:
     - export DISPLAY=':99.0'
@@ -26,8 +26,7 @@ install:
 language: node_js
 
 node_js:
-    - '4'
-    - 'stable'
+    - '4.4.7'
 
 branches:
     only:
