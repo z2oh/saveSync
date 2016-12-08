@@ -9,7 +9,14 @@ addons:
             - ubuntu-toolchain-r-test
         packages:
             - libstdc++-4.9-dev
+            - gcc-4.9
+            - g++-4.9
             - xvfb
+
+before_install:
+    - export CC="gcc-4.9"
+    - export CXX="g++-4.9"
+    - BUILD_ONLY=true npm install
 
 install:
     - export DISPLAY=':99.0'
@@ -20,6 +27,7 @@ language: node_js
 
 node_js:
     - '4'
+    - 'stable'
 
 branches:
     only:
