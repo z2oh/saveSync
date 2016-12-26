@@ -26,6 +26,7 @@
   "devDependencies": {
     "@types/electron-json-storage": "0.0.19",
     "@types/node": "^6.0.45",
+    "@types/es6-promise":"0.0.32",
     "electron": "^1.4.1",
     "electron-json-storage": "^2.0.1",
     "gulp": "^3.9.1",
