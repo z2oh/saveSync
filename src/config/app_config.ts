@@ -62,10 +62,13 @@ export class AppConfiguration {
 	 */
 	private Init() {
 		storage.set("settings", this.defaultConfig, (err) => {
-			if (err) {
-				console.log(err);
+			if(err.errno == -2){ //This is the folder does not exist error
 				console.log("Settings.json does not exist, creating it now");
-				// throw err;
+			}
+			else{
+				// console.log(err);
+				// console.log("Settings.json does not exist, creating it now");
+				throw err;
 			}
 		});
 	}
