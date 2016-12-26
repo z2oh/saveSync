@@ -5,7 +5,7 @@ import storage = require("electron-json-storage");
 	}
 /**
  * The interface for dealing with the app configuration settings.
- * 
+ *
  * @export
  * @class AppConfiguration
  */
@@ -21,14 +21,14 @@ export class AppConfiguration {
 
 	/**
 	 * Creates an instance of AppConfiguration.
-	 * 
+	 *
 	 * Attempts to retrieve the settings.json file located in the app data directory. If there
 	 * is an error, the error is thrown. If the settings file does not exist (indicated by an
 	 * empty object and detected if the default key is not present) then the settings file is
 	 * initialized with the init function and the settings promise is resolved with the default
 	 * configuration. Otherwise, the settings file was retrieved correctly and exists, and the
 	 * settings promise is resolved with the returned data.
-	 * 
+	 *
 	 * @memberOf AppConfiguration
 	 */
 	constructor() {
@@ -46,9 +46,9 @@ export class AppConfiguration {
 
 	/**
 	 * A getter for the settings promise.
-	 * 
+	 *
 	 * @returns a promise that will be resolved with the settings object.
-	 * 
+	 *
 	 * @memberOf AppConfiguration
 	 */
 	public GetSettings() {
@@ -57,12 +57,17 @@ export class AppConfiguration {
 
 	/**
 	 * Initializes the settings.json file with the default configuration.
-	 * 
+	 *
 	 * @memberOf AppConfiguration
 	 */
 	private Init() {
 		storage.set("settings", this.defaultConfig, (err) => {
-			if (err) {
+			if(err.errno == -2){ //This is the folder does not exist error
+				console.log("Settings.json does not exist, creating it now");
+			}
+			else{
+				// console.log(err);
+				// console.log("Settings.json does not exist, creating it now");
 				throw err;
 			}
 		});
