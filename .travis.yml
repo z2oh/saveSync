@@ -30,4 +30,4 @@ node_js:
 
 branches:
     only:
-        - master
+        - travis
