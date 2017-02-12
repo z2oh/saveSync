@@ -8,14 +8,14 @@ addons:
         sources:
             - ubuntu-toolchain-r-test
         packages:
-            - libstdc++-5-dev
-            - gcc-5
-            - g++-5
+            - libstdc++-4.9-dev
+            - gcc-4.9
+            - g++-4.9
             - xvfb
 
 before_install:
-    - export CC="gcc-5"
-    - export CXX="g++-5"
+    - export CC="gcc-4.9"
+    - export CXX="g++-4.9"
     - BUILD_ONLY=true npm install nodegit
 
 install:
