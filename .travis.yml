@@ -21,8 +21,11 @@ addons:
 before_install:
     - export CC="gcc-4.9"
     - export CXX="g++-4.9"
+
+install:
     - export DISPLAY=':99.0'
     - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+    - npm install
 
 branches:
     only:
