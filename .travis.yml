@@ -10,12 +10,10 @@ addons:
         packages:
             - libstdc++-4.9-dev
             - gcc-4.9
-            - g++-4.9
             - xvfb
 
 before_install:
     - export CC="gcc-4.9"
-    - export CXX="g++-4.9"
     - BUILD_ONLY=true npm install nodegit
 
 install:
