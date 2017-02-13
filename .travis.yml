@@ -27,6 +27,10 @@ install:
     - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
     - npm install
 
+before_script:
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+
 branches:
     only:
         - travis
