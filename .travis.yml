@@ -14,9 +14,13 @@ addons:
             - ubuntu-toolchain-r-test
         packages:
             - libstdc++-4.9-dev
+            - gcc-4.9
+            - g++-4.9
             - xvfb
 
 before_install:
+    - export CC="gcc-4.9"
+    - export CXX="g++-4.9"
     - export DISPLAY=':99.0'
     - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
 
