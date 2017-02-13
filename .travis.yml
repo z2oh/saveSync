@@ -3,6 +3,11 @@ os:
     - osx
     - windows
 
+language: node_js
+
+node_js:
+    - '4.4.7'
+    
 addons:
     apt:
         sources:
@@ -11,14 +16,9 @@ addons:
             - libstdc++-4.9-dev
             - xvfb
 
-install:
+before_install:
     - export DISPLAY=':99.0'
     - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-
-language: node_js
-
-node_js:
-    - '4.4.7'
 
 branches:
     only:
