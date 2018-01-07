@@ -12,10 +12,10 @@ function createWindow() {
 	mainWindow = new BrowserWindow({
 		height: 300,
 		width: 600,
-		"min-width": 500,
-		"min-height": 200,
-		"accept-first-mouse": true,
-		"title-bar-style": "hidden",
+		"minWidth": 500,
+		"minHeight": 200,
+		"acceptFirstMouse": true,
+		"titleBarStyle": "hidden",
 	});
 	mainWindow.loadURL("file://" + __dirname + "/index.html");
 	mainWindow.on("closed", function () {
